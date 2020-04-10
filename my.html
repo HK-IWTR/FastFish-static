@@ -1,0 +1,199 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>我的</title>
+
+	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
+ 
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css"> 
+	<link rel="stylesheet" href="css/app.css"> 
+	<!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+	<script src="js/jquery.min.js"></script>  
+	<script src="js/mui.min.js"></script> 
+    
+	<script src="js/swiper.min.js"></script> 
+</head> 
+<body>
+
+<script>
+function sign(){
+    window.open('sign_on.html','_self')
+}
+
+</script>
+
+
+<!-- 头部 -->
+<div class="meimozi"> 
+    <div class="toubuqq">
+        <div class="guanz my_guanz"><a href="javascript:void (0)" onclick="to_setting()"><img src="images/shez.png" alt=""></a></div>
+        <div class="toux">
+            <img id="Dfgrg" style="height:1.1rem;" src="images/user.png" alt="">
+        </div>
+        <div class="mingz">
+            <h2 id="signon" onclick="sign()">登录/注册</h2>
+            <h2 id="username"></h2>
+            <div class="xiaxdx">
+            </div>
+        </div>
+    </div>
+
+
+<!--    <div class="xiao_xindm">-->
+<!--        <a href="#"><p>有<span>2</span>条新消息<button>立即查看></button></p></a>-->
+<!--    </div>-->
+</div>
+<div class="bottom_neir_k">
+    <br>
+    <div class="my_fuwu_no">
+        <h3>我的服务</h3>
+        <ul>
+            <li><a href="javascript:void (0)" onclick="to_my_wallet()"><img src="images/my_wallet.png" alt=""><p>我的钱包</p></a></li>
+            <li><a href="javascript:void (0)" onclick="to_my_orders()"><img src="images/my_orders.png" alt=""><p>我的订单</p></a></li>
+            <li><a href="javascript:void (0)" onclick="to_my_starts()"><img src="images/my_starts.png" alt=""><p>我的收藏</p></a></li>
+            <li><a href="javascript:void (0)" onclick="to_my_point()"><img src="images/my_points.png" alt=""><p>我的积分</p></a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="my_fuwu_no">
+        <h3>其他功能</h3>
+        <ul>
+            <li><a href="#"><img src="images/dier_my_img.png" alt=""><p>官方客服</p></a></li>
+            <li><a href="my_fank.html"><img src="images/dier_my_img1.png" alt=""><p>意见反馈</p></a></li>
+            <li><a href="notice.html"><img src="images/dier_my_img2.png" alt=""><p>关于我们</p></a></li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+</div>
+<!-- 底部导航 -->
+<div class="foot_menu">
+    <!-- <div class="bei"></div>  -->
+    <ul>
+        <li>
+            <a href="index.html">
+                <i><img src="images/dibu.png"></i>
+                <span>首 页</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="fujin.html">
+                <i><img src="images/dibu2.png"></i>
+                <span>附 近</span>
+            </a>
+        </li>
+        <li class="no">
+            <a href="my.html">
+                <i><img src="images/dibu3_.png"></i>
+                <span>我 的</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+    var issignon = false;
+    var returnData ;
+
+    $(function(){
+        $.ajax({
+            url : "http://localhost:8080/account/issignon",
+            type: "get",
+            async: false,
+            success:function(data){
+                console.log(data)
+                if(data.result == "true"){
+                    $("#signon").hide();
+                    $("#username").html(data.username);
+                    issignon = true;
+                    returnData = data;
+
+                }else{
+                    $("#username").hide();
+                }
+            },
+            error:function(){
+                alert("error")
+            }
+
+        });
+
+    });
+
+    function to_my_wallet () {
+        if (issignon){
+            window.location.href = "my_wallet.html";
+        }
+        else{
+            alert("请先登录")
+            window.location.href = "sign_on.html";
+        }
+    }
+
+    function to_my_point() {
+        if (issignon){
+            window.location.href = "my_point.html";
+        }
+        else{
+            alert("请先登录")
+            window.location.href = "sign_on.html";
+        }
+
+    }
+
+    function to_my_orders() {
+        if (issignon){
+            window.location.href = "my_ordering.html"
+        }
+        else{
+            alert("请先登录")
+            window.location.href = "sign_on.html";
+        }
+
+    }
+
+    function to_my_starts() {
+        if (issignon){
+            window.location.href = "my_starts.html";
+        }
+        else{
+            alert("请先登录")
+            window.location.href = "sign_on.html";
+        }
+    }
+
+        function to_setting() {
+            if (issignon){
+                window.location.href = "setting.html";
+            }
+            else{
+                alert("请先登录")
+                window.location.href = "sign_on.html";
+            }
+
+    }
+
+
+</script>
+
+</body>
+</html>   
+
+ 

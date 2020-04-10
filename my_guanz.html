@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>拼面子</title> 
+
+	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
+ 
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css"> 
+	<link rel="stylesheet" href="css/app.css"> 
+	<!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+	<script src="js/jquery.min.js"></script>  
+	<script src="js/mui.min.js"></script> 
+    
+	<script src="js/swiper.min.js"></script> 
+</head> 
+<body> 
+<!-- 搜索 -->  
+<div style="height: .75rem;"></div>
+<!-- 头部 -->
+<style>
+body {
+    background: #fff;
+}
+</style>
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>我的关注</p>
+</div>  
+<div class="rem2"></div>
+<!-- 内容 -->   
+
+<div class="mui-content class_xiaox class_colorga">
+    <!-- <div class="zuix_xiaox">最新消息</div> -->
+    <ul id="OA_task_1" class="mui-table-view"> 
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle">
+                <div class="xiaoxi_neir_k beizhu">
+                    <div class="img_t"><img style="height: .8rem;" src="images/img2.jpg" alt=""></div>
+                    <dl class="text_you">
+                        <dt>这是什么意思</dt>
+                        <dd style="color: #ff2e26;">￥20090  <span  style="color: #999; float: right;">关注时间：2019-10-18</span></dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle">
+                <div class="xiaoxi_neir_k beizhu">
+                    <div class="img_t"><img style="height: .8rem;" src="images/img1.jpg" alt=""></div>
+                    <dl class="text_you">
+                        <dt>这是什么意思</dt>
+                        <dd style="color: #ff2e26;">￥20090  <span  style="color: #999; float: right;">关注时间：2019-10-18</span></dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle">
+                <div class="xiaoxi_neir_k beizhu">
+                    <div class="img_t"><img style="height: .8rem;" src="images/img.jpg" alt=""></div>
+                    <dl class="text_you">
+                        <dt>这是什么意思</dt>
+                        <dd style="color: #ff2e26;">￥20090  <span  style="color: #999; float: right;">关注时间：2019-10-18</span></dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+    </ul> 
+</div>
+<!-- js 跳转 -->
+<script>
+$(function(){
+    $(".tiaoz_list").mousedown(function(){
+        window.open('XiaoXi_list.html','_self')
+    })
+})
+
+// 这个备注 ---- 跳转不一样的页面——如在线聊天等等
+$(function(){
+    $(".beizhu").mousedown(function(){ 
+        alert("大佬这个另外页面了哦！")
+    })
+})
+</script>
+<script>
+    mui.init();
+    (function($) { 
+        //第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
+        $('#OA_task_1').on('tap', '.mui-btn', function(event) {
+            var elem = this;
+            var li = elem.parentNode.parentNode;
+            mui.confirm('<div class="text"><p class="icon-information"></p><h3>确定删除此条消息？</h3><span></span></div>', 'Hello', btnArray, function(e) {
+                if (e.index == 0) {
+                    li.parentNode.removeChild(li);
+                } else {
+                    setTimeout(function() {
+                        $.swipeoutClose(li);
+                    }, 0);
+                }
+            });
+        });
+        var btnArray = ['确认', '取消']; 
+    })(mui);
+</script>	
+    
+<br>
+<br>
+<br>
+
+<!-- 底部导航 -->
+<div class="foot_menu">
+        <!-- <div class="bei"></div>  -->
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i><img src="images/dibu.png"></i>
+                    <span>首 页</span>
+                </a>
+            </li>
+            <li>
+                <a href="fujin2.html">
+                    <i><img src="images/dibu1.png"></i>
+                    <span>发 布</span>
+                </a>
+            </li> 
+            <li class="no">
+                <a href="fujin.html">
+                    <i><img src="images/dibu2_.png"></i>
+                    <span>消 息</span>
+                </a>
+            </li> 
+            <li>
+                <a href="my.html">
+                    <i><img src="images/dibu3.png"></i>
+                    <span>我 的</span>
+                </a> 
+            </li> 
+        </ul> 
+    </div>
+</body>
+</html>   
+
+ 

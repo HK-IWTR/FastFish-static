@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>拼面子</title>
+
+    <link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+</head>
+<body>
+<style>
+    body {
+        background: #fff;
+    }
+
+    .ziye_toub {
+        background: #ff2e26;
+    }
+
+    .ziye_toub p {
+        color: #fff;
+    }
+
+    .ziye_toub .left {
+        background: url(images/tuih.png) no-repeat center;
+        background-size: .2rem;
+    }
+</style>
+<div style="height: .75rem;"></div>
+<!-- 搜索 -->
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>注册</p>
+</div>
+
+<div class="rem2"></div>
+<div class="zhuc_cdsg">
+    <form id="accountForm">
+        <ul>
+            <li><img src="images/zhuc_w.png" alt=""><input id="username" name="username" class="nomen" type="text" placeholder="用户名"></li>
+            <li><img src="images/zhuc_w1.png" alt=""><input id="phonenumber" name="phonenumber" class="nomen" type="text" placeholder="手机号码"></li>
+            <!--        <li><img src="images/zhuc_w2.png" alt=""><input class="nomen" type="text" placeholder="短信验证码"> -->
+            <!--            <input type="button" class="btn" id="btn" value="获取验证码" onclick="sendemail()">-->
+            <!--        </li>-->
+            <li><img src="images/zhuc_w3.png" alt=""><input id="password" name="password" class="password" type="password" placeholder="请输入6~12位密码"></li>
+            <li><img src="images/zhuc_w3.png" alt=""><input id="repeatedPassword" name="repeatedPassword" class="password" type="password" placeholder="请再次输入密码"></li>
+        </ul>
+    </form>
+</div>
+<div class="queren_df">
+    <button onclick="submitForm()">注册账号</button>
+</div>
+
+<script>
+    ////----------------------------------
+    var countdown = 60;
+
+    function sendemail() {
+        var obj = $("#btn");
+        settime(obj);
+    }
+
+    function settime(obj) { //发送验证码倒计时
+        if (countdown == 0) {
+            obj.attr('disabled', false);
+            //obj.removeattr("disabled");
+            obj.val("免费获取验证码");
+            countdown = 60;
+            return;
+        } else {
+            obj.attr('disabled', true);
+            obj.val("重新发送(" + countdown + ")");
+            countdown--;
+        }
+        setTimeout(function () {
+            settime(obj)
+        }, 1000)
+    }
+
+    function submitForm(){
+        $.ajax({
+            cache: true,
+            type: "post",
+            url: "http://localhost:8080/account/new",
+            data: $('#accountForm').serialize(),
+            xhrFields: {withCredentials: true},
+            async: false,
+            success: function(data) {
+                result = data.result
+                if(result== "false"){
+                    error = data.error
+                    if(error == "usernameEmpty"){
+                        alert("User ID Empty!")
+                    }else if(error == "passwordEmpty"){
+                        alert("Password Empty!")
+                    }else if(error == "exist"){
+                        alert("The User ID is Exist!")
+                    }else{
+                        //== repeat
+                        alert("The Repeated Password Error!")
+                    }
+                }else{
+                    window.location.href="index.html"
+                }
+            },
+            error: function(data) {
+                alert("error");
+            }
+        });
+
+    }
+</script>
+
+<br>
+<br>
+<!-- 底部导航 -->
+</body>
+
+</html>    

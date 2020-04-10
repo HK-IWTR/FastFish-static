@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>拼面子</title> 
+
+	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
+ 
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/app.css"> 
+	<!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+	<script src="js/jquery.min.js"></script>  
+    
+	<script src="js/swiper.min.js"></script> 
+</head> 
+<body> 
+<!-- 搜索 -->  
+<div style="height: .75rem;"></div>
+<!-- 头部 -->
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>商品发布</p>
+</div>  
+<div class="rem2"></div>
+<!-- 内容 -->   
+<div class="swiper_fabu">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"> 
+            <ul class="neiron"> 
+                <li><p>店面金额</p><div class="right yuan_you"><input type="text" placeholder="请输入店面金额"></div></li> 
+                <li><p>店面地址</p><div class="right jiant_you"><input type="text" id="trigger4" value="选择地址"></div></li> 
+                <li><p>详细地址</p><div class="right"><input type="text" placeholder="请输入详细地址"></div></li> 
+                <li><p>交易模式</p><div class="right jiant_you" id="xz_click"><input type="text" value="拼卖"></div></li> 
+                <li><p>拼单人数</p><div class="right yuan_you_ren"><input type="text" placeholder="24"></div></li> 
+                <li><p>分红模式</p><div class="right jiant_you" id="xz_click2"><input type="text"  value="选择地址"></div></li> 
+                <li><p>店面面积</p><div class="right mingm_you"><input type="text"  placeholder="请输入面积"></div></li> 
+                <li><p>拍品介绍</p><div class="right"><textarea type="text" placeholder="请输入拍品介绍"></textarea></div></li> 
+                <li><p style="width: 100%">店铺建筑图纸</p> 
+                    <div class="shangctup">
+                        <div><img src="images/img.jpg" style="height: 1rem" alt=""></div> 
+                        <div><img src="images/img1.jpg" style="height: 1rem" alt=""></div> 
+                        <div><img src="images/jia+.png" style="height: 1rem" alt=""></div> 
+                    </div>
+                </li> 
+                <li><p style="width: 100%">店铺外景效果图等图片</p> 
+                    <div class="shangctup">
+                        <div><img src="images/img.jpg" style="height: 1rem" alt=""></div> 
+                        <div><img src="images/img1.jpg" style="height: 1rem" alt=""></div> 
+                        <div><img src="images/jia+.png" style="height: 1rem" alt=""></div> 
+                    </div>
+                </li>  
+                <div class="quandk">
+                    <label class="kuang"><input type="radio" name="sex" class="xuanz" value="同意">你是否同意<a href="#">《我们的法则》</a></label>
+                    <button>提交发布</button>
+                </div> 
+            </ul> 
+        </div>
+        <div class="swiper-slide">Slide 2</div> 
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+ <!-- 分类详情 -->
+ <div class="xuanzhy nidf_wd">
+    <div></div>
+    <ul>
+        <li>拼买</li>
+        <li>单独购买 </li>  
+    </ul>
+</div>
+<div class="xuanzhy nidf_sdgg">
+    <div></div>
+    <ul>
+        <li>ewt热 狗</li>
+        <li>二月日月 </li>  
+    </ul>
+</div>
+    <script>
+        $(function(){
+            $("#xz_click").mousedown(function(){
+                $(".nidf_wd ul").css("right","0px");
+                $(".nidf_wd>div").css("display","block");
+            })
+            $(".nidf_wd>div").mousedown(function(){
+                $(".nidf_wd ul").css("right","-80%");
+                $(".nidf_wd>div").css("display","none");
+            })
+            $(".nidf_wd ul li").mousedown(function(){
+                var zhi=$(this).text();
+                $("#xz_click input").val(zhi);
+                $(".nidf_wd ul").css("right","-80%");
+                $(".nidf_wd>div").css("display","none");
+            })
+        })
+        $(function(){
+            $("#xz_click2").mousedown(function(){
+                $(".nidf_sdgg ul").css("right","0px");
+                $(".nidf_sdgg>div").css("display","block");
+            })
+            $(".nidf_sdgg>div").mousedown(function(){
+                $(".nidf_sdgg ul").css("right","-80%");
+                $(".nidf_sdgg>div").css("display","none");
+            })
+            $(".nidf_sdgg ul li").mousedown(function(){
+                var zhi=$(this).text();
+                $("#xz_click2 input").val(zhi);
+                $(".nidf_sdgg ul").css("right","-80%");
+                $(".nidf_sdgg>div").css("display","none");
+            })
+        })
+    </script>
+<script>
+var swiper = new Swiper('.swiper_fabu', {
+    pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    renderBullet: function (index, className) {
+          switch(index){
+            case 0:text='公司产权';break;
+            case 1:text='店铺产权';break; 
+          }
+          return '<span class="' + className + '">' + text + '</span>';
+        },
+    },
+});
+</script>
+ 
+</body>
+</html>   
+
+ 

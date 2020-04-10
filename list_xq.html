@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>店面详情</title>
+
+	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
+ 
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/css.css"/>
+	<!-- jquery -->
+	<script src="js/jquery-1.4.4.min.js"></script>  
+	<script src="js/swiper.min.js"></script>
+    <link type="text/css" href="./css/mobiscroll.css" rel="stylesheet" />
+</head> 
+<body> 
+<!-- 搜索 -->  
+<div style="height: .75rem;"></div>
+<!-- 头部 -->
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>游泳馆详情</p>
+</div>
+<!-- banner -->
+<div class="swiper-container banner_shouy list_xq">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="images/rupian2.jpg"></div>
+		<div class="swiper-slide"><img src="images/rupian.jpg"></div>
+	</div>
+	<div class="swiper-pagination lunbo_banner"></div>
+</div>
+<div class="list_xianq">
+    <div class="bt">
+        <h2>奥古斯都游泳馆</h2>
+<!--        <p>12000/月 <span>一年起租</span></p>-->
+    </div>
+</div>
+<div class="nimen_sd_dd">
+    <p><span>室内场馆</span><span>有</span></p>
+    <p><span>恒温泳池</span><span>有</span></p>
+    <p><span>联系方式</span><span>123456789</span></p>
+    <p><span>地址</span><span>吉安南路38号</span></p>
+</div>
+<div class="biaot_ser">
+    <h1 class="biaot">场馆公告</h1>
+    <div class="news_sj_dxs_box">
+        <div class="scrollnews">
+            <ul style="margin-top: 0px;">
+                <li><i>公告</i><a href="notice.html">奥古斯都游泳馆将在3月1日开业</a></li><li><i>热门</i><a href="report_xq.html">董事长在员工大会上发表演讲！</a></li><li><i>头条</i><a href="report_xq.html">热烈祝贺颜文明体育贵阳市枣山路店盛大开业</a></li>
+            </ul>
+            <a class="gengd" href="report.html">更多</a>
+        </div>
+    </div>
+</div>
+
+<div class="biaot_ser">
+    <h1 class="biaot">场次预约</h1>
+
+    <div class="sea-div">
+        <label class="lab">日期选择</label><input type="text" readonly  id="startDate"/>
+    </div>
+
+    <div class="neir_lise">
+        <ul>
+            <li>
+                <a>8:00-10:00</a>
+                <a href="make_order.html" class="right">预约</a>
+            </li>
+            <li>
+                <a>10:00-12:00</a>
+                <a href="#" class="right">预约</a>
+            </li>
+            <li>
+                <a >12:00-14:00</a>
+                <a href="#" class="right">预约</a>
+            </li>
+            <li>
+                <a>14:00-16:00</a>
+                <a href="#" class="right">预约</a>
+            </li>
+            <li>
+                <a>16:00-18:00</a>
+                <a href="#" class="right">预约</a>
+            </li>
+            <li>
+                <a>18:00-20:00</a>
+                <a href="#" class="right">预约</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<script>
+// banner
+var swiper = new Swiper('.banner_shouy', {
+	pagination: {
+		el: '.swiper-pagination',
+        type: 'fraction', 
+	},
+	autoplay: {
+		delay: 3000,
+		stopOnLastSlide: false,
+		disableOnInteraction: true, 
+	},  
+});
+
+$(function(){
+    $('#timeSel').mobiscroll().datetime({
+        theme: 'ios', //皮肤样式
+        display: 'bottom', //对齐
+        mode: 'scroller', //日期选择模式：弹出
+        lang: 'zh',         //语言
+        dateFormat: 'yy-MM-dd HH:mm', // 日期格式
+        setText: '确定', //确认按钮名称
+        cancelText: '取消',//取消按钮名籍我
+        showLabel : false,   //显示头信息
+        headerText: '时间',
+        height: 40,
+        max: new Date('2050-12-30 23:59:59'),
+        min: new Date('2014-01-01 00:00:00')
+    });
+});
+</script>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.ui.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/hotel/hotel.search.js"></script>
+<script type="text/javascript" src="js/stay.js"></script>
+
+</body>
+</html>   
+
+ 

@@ -1,0 +1,315 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>首页</title>
+
+	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
+ 
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/app.css"> 
+	<!-- jquery -->
+	<script src="js/jquery-1.4.4.min.js"></script>  
+	<script src="js/swiper.min.js"></script>
+
+</head>
+
+<body> 
+<!-- 搜索 -->
+<!-- 搜索框 -->
+<div class="search_bomb_box">
+	<div class="search_top fix">
+		<a class="search_bomb_box_a"><img src="images/back_jt.png"></a>
+		<div>
+			<form>
+				<input type="text" name="" placeholder="搜索">
+				<button type="submit"><img src="images/sous.png"></button>
+			</form>
+		</div>
+	</div>
+
+</div> 
+<div style="height: .75rem;"></div>
+<!-- 外框 -->
+<div id="waik"> 
+<!-- 头部 -->
+<div class="indix_top">  
+	<div class="zjeges_diz">吉安</div>
+
+	<input type="text" id="input1"  placeholder="搜索"/>
+</div> 
+<!-- banner -->
+<div class="swiper-container banner_shouy">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="images/index-head.jpeg"></div>
+		<div class="swiper-slide"><img src="images/index-head.jpeg"></div>
+	</div>
+	<div class="swiper-pagination lunbo_banner"></div>
+</div>  
+
+
+<script>
+var swiper = new Swiper('.kuaijdh_container', {
+	slidesPerView:5,
+	slidesPerColumn: 1,
+	spaceBetween: 0,
+	pagination: {
+    el: '.swiper-pagination',
+    // type: 'bullets',
+    // type: 'fraction',
+    type : 'progressbar',
+    // type : 'custom',
+  },
+	
+});
+</script>
+
+	<br>
+
+<script>
+//  平台公告
+
+$(document).ready(function(){
+	//滚动文字
+	function runtxt(){
+		$(".scrollnews ul").animate({marginTop:"-.4rem"},300,
+			function(){
+				$(".scrollnews ul li:last").after($(".scrollnews ul li:first"))
+				$(".scrollnews ul").css("margin-top",0)
+			}
+		)
+	}   
+	$(".scrollnews ul li a").mouseenter(
+		function(){
+			clearInterval(timer)
+		}
+	)
+	$(".scrollnews ul li a").mouseleave(
+		function(){
+			timer=setInterval(runtxt,4000)
+		}
+	)
+	timer=setInterval(runtxt,4000)
+}) 
+</script>
+
+<!-- 品质商家 -->
+<div class="pzsj">
+	<div class="bt"> 
+		<p>品质场馆</p>
+		<div class="a"><a href="fujin.html">查看更多 ></a></div>
+	</div>
+	<div class="swiper_container_pinz">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="dfe_zzrep">
+					<a href="release_list_xq.html">
+						<img src="images/zzrep.jpg">
+					</a>
+					<p>奥古斯都游泳馆</p> 
+
+				</div> 
+			</div>
+			<div class="swiper-slide">
+				<div class="dfe_zzrep">
+					<a href="release_list_xq.html">
+						<img src="images/zzrep1.jpg">
+					</a>
+					<p>奥古斯都游泳馆</p> 
+
+				</div> 
+			</div>
+			<div class="swiper-slide">
+				<div class="dfe_zzrep">
+					<a href="release_list_xq.html">
+						<img src="images/zzrep2.jpg">
+					</a>
+					<p>奥古斯都游泳馆</p> 
+
+				</div> 
+			</div>
+			<div class="swiper-slide">
+				<div class="dfe_zzrep">
+					<a href="release_list_xq.html">
+						<img src="images/zzrep1.jpg">
+					</a>
+					<p>奥古斯都游泳馆</p> 
+					
+				</div> 
+			</div>
+			<div class="swiper-slide">
+				<div class="dfe_zzrep">
+					<a href="release_list_xq.html">
+						<img src="images/zzrep2.jpg">
+					</a>
+					<p>奥古斯都游泳馆</p> 
+					
+				</div> 
+			</div>
+			<div class="swiper-slide">
+				<div class="dfe_zzrep">
+					<a href="release_list_xq.html">
+						<img src="images/zzrep.jpg">
+					</a>
+					<p>奥古斯都游泳馆</p>
+				</div> 
+			</div>
+		</div> 
+	</div>
+</div>
+
+<script>
+// 正在热拼
+var swiper = new Swiper('.swiper_container_pinz', {
+	slidesPerView:3, 
+	spaceBetween:6, 
+	autoplay: {
+		delay: 3000,
+		stopOnLastSlide: false,
+		disableOnInteraction: false,
+	}, 
+    loop : true,
+
+});
+	
+</script>
+
+<!-- 列表 -->
+<div class="biaoti_Sy">
+	<h2>场馆推荐</h2>
+</div>
+<div class="list_shouye">
+	<ul>
+		<li>
+			<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
+			<dl>
+				<dt><b>奥古斯都游泳馆</b></dt>
+				<a>优质服务</a>
+				<dd>￥30/人
+					<div class="touxs">
+						4.8分
+					</div> 
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
+			<dl>
+				<dt><b>奥古斯都游泳馆</b></dt>
+				<a>优质服务</a>
+				<dd>￥30/人
+					<div class="touxs">
+						4.8分
+					</div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+		<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
+		<dl>
+			<dt><b>奥古斯都游泳馆</b></dt>
+			<a>优质服务</a>
+			<dd>￥30/人
+				<div class="touxs">
+					4.8分
+				</div>
+			</dd>
+		</dl>
+	</li>
+		<li>
+		<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
+		<dl>
+			<dt><b>奥古斯都游泳馆</b></dt>
+			<a>优质服务</a>
+			<dd>￥30/人
+				<div class="touxs">
+					4.8分
+				</div>
+			</dd>
+		</dl>
+	</li>
+		<li>
+		<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
+		<dl>
+			<dt><b>奥古斯都游泳馆</b></dt>
+			<a>优质服务</a>
+			<dd>￥30/人
+				<div class="touxs">
+					4.8分
+				</div>
+			</dd>
+		</dl>
+	</li>
+	</ul>
+</div>
+
+<!-- 底部导航 -->
+	<div class="foot_menu">
+		<!-- <div class="bei"></div>  -->
+		<ul>
+			<li class="no">
+				<a href="index.html">
+					<i><img src="images/dibu_.png"></i>
+					<span>首 页</span>
+				</a>
+			</li>
+			<li >
+				<a href="fujin.html">
+					<i><img src="images/dibu2.png"></i>
+					<span>附 近</span>
+				</a>
+			</li>
+			<li>
+				<a href="my.html">
+					<i><img src="images/dibu3.png"></i>
+					<span>我 的</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+<!-- 外框结束div -->
+<br>
+<br>
+<br> 
+</div>  
+</body>
+</html>
+
+<script>
+	// 首页
+	// 搜索显示隐藏
+	$(function(){
+		$("#input1").mousedown(
+				function(){
+					$(".search_bomb_box").show()
+					$("#waik").hide()
+				}
+		)
+		$(".search_bomb_box .search_top>a").mousedown(
+				function(){
+					$(".search_bomb_box").hide()
+					$("#waik").show()
+				}
+		)
+	})
+
+	// banner
+	var swiper = new Swiper('.banner_shouy', {
+		pagination: {
+			el: '.swiper-pagination',
+		},
+		autoplay: {
+			delay: 3000,
+			stopOnLastSlide: false,
+			disableOnInteraction: true,
+		},
+	});
+
+</script>
+ 

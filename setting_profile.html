@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>个人信息</title>
+
+    <link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+</head>
+<body>
+
+<div style="height: .75rem;"></div>
+
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>修改个人信息</p>
+</div>
+
+<div class="rem2"></div>
+<div class="zhuc_cdsg">
+    <form id="profileForm">
+        <ul>
+            <li><a>用户名：</a><input id="username" name="username" class="nomen" type="text" ></li>
+            <li><a>手机号码：</a><input id="phonenumber" name="phonenumber" class="nomen" type="text" ></li>
+            <li><a>邮箱：</a><input id="email" name="email" class="nomen" type="text" ></li>
+            <li><a>地址：</a><input id="address" name="address" class="nomen" type="text" ></li>
+        </ul>
+    </form>
+</div>
+<div class="queren_df">
+    <button onclick="submitForm()">确认修改</button>
+</div>
+
+<script>
+
+    $(function getProfile () {
+        $.ajax({
+            cache: true,
+            type: "get",
+            url: "http://localhost:8080/account/profile",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                $("#username").val(data.username);
+                $("#phonenumber").val(data.phonenumber);
+                $("#email").val(data.email);
+                $("#address").val(data.address);
+            },
+            error: function(data) {
+                alert("error");
+            },
+        })
+
+    });
+
+    function submitForm(){
+        $.ajax({
+            cache: true,
+            type: "post",
+            url: "http://localhost:8080/account/editProfile",
+            data: $('#profileForm').serialize(),
+            xhrFields: {withCredentials: true},
+            async: false,
+            success: function(data) {
+                result = data.result;
+                if(result== "false"){
+                    alert("修改失败");
+                }else{
+                    alert("修改成功");
+                    getProflie();
+                }
+            },
+            error: function(data) {
+                alert("error");
+            }
+        });
+
+    }
+</script>
+
+<br>
+<br>
+<!-- 底部导航 -->
+</body>
+
+</html>    

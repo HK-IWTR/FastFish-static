@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>设置</title>
+
+    <link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- <script src="js/swiper.min.js"></script>  -->
+</head>
+<body>
+<!-- 搜索 -->
+<style>
+    body {
+        background: #f1f1f1;
+    }
+</style>
+<div style="height: .75rem;"></div>
+<!-- 头部 -->
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>设置</p>
+</div>
+<!-- 内容 -->
+<div class=" rem2"></div>
+<div class="list_index_shez" style=" margin-top:1px;">
+    <div class="my_dind">
+        <div class="bt">
+            <a href="setting_profile.html">
+                <h3>编辑个人信息</h3>
+                <div class="right">
+                    <span></span>
+                    <img src="images/right_jt.png">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="my_dind">
+        <div class="bt">
+            <a href="setting_password.html">
+                <h3>密码修改</h3>
+                <div class="right">
+                    <span></span>
+                    <img src="images/right_jt.png">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="anquantc"><a href="javascript:void (0)" onclick="singoff()">退出登录</a></div>
+</body>
+
+<script>
+    function singoff() {
+        $.ajax({
+            url: "http://localhost:8080/account/signoff",
+            type: "get",
+            async: false,
+            success: function () {
+                window.location.href = "my.html";
+            },
+            error: function () {
+                alert("error")
+            }
+        })
+
+    }
+</script>
+
+</html>   
+ 

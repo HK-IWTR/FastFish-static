@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>我的钱包</title>
+
+	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
+ 
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css"> 
+	<link rel="stylesheet" href="css/app.css"> 
+	<!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+	<script src="js/jquery.min.js"></script>  
+	<script src="js/mui.min.js"></script> 
+    
+	<script src="js/swiper.min.js"></script> 
+</head> 
+<body> 
+<div style="height: .75rem;"></div>
+<style>
+body{background:#fff;}
+</style>
+<!-- 头部 -->
+<div class="ziye_toub">
+    <div class="left" onclick="history.back();"></div>
+    <p>我的钱包</p>
+</div> 
+<div class="yve_money">
+    <p>我的余额</p>
+    <h2 id="money">640</h2>
+</div>
+<div class="color_df">
+	<a href="point_store.html"><button>在线充值</button></a>
+</div>
+
+<div class="fenh_ziyek">
+	<h3>钱包明细</h3>
+<!--	<ul>-->
+<!--		<li>-->
+<!--			<a>-->
+<!--				<dl>-->
+<!--					<dt>奥古斯都游泳馆</dt>-->
+<!--					<dd>2019-10-25<span>积分状况：<i>+99.00</i></span></dd>-->
+<!--				</dl>-->
+<!--			</a>-->
+<!--		</li>-->
+<!--		<li>-->
+<!--			<a>-->
+<!--				<dl>-->
+<!--					<dt>书籍兑换</dt>-->
+<!--					<dd>2019-10-25<span>积分状况：<i>-299.00</i></span></dd>-->
+<!--				</dl>-->
+<!--			</a>-->
+<!--		</li>-->
+<!--	</ul>-->
+</div>
+<br>
+<br>
+<script>
+
+	$(function(){
+		$.ajax({
+			url : "http://localhost:8080/account/money",
+			type: "get",
+			async: false,
+			success:function(data){
+				console.log(data);
+				$("#money").html("￥"+data.money);
+			},
+			error:function(){
+				alert("error")
+			}
+		});
+
+	});
+
+
+</script>
+
+</body>
+</html>   
+
+ 

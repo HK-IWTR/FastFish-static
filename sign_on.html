@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="referrer" content="no-referrer" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>登录</title>
+
+    <link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- jquery -->
+    <!-- <script src="js/jquery-1.4.4.min.js"></script>   -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+</head>
+<body>
+
+<style>
+    body {
+        background: #fff;
+    }
+</style>
+<!-- 搜索 -->
+<div class="sign_in_k">
+    <div class="left_sign" onclick="history.back();"></div>
+    <div class="logo"><img src="images/logo.png" alt=""></div>
+    <svg class="editorial" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+            <path id="gentle-wave"
+                  d="m -160,44.4 c 30,0 58,
+                -18 87.7,-18 30.3,0 58.3,
+                18 87.3,18 30,0 58,-18 88,
+                -18 30,0 58,18 88,18 l 0,
+                34.5 -351,0 z"/>
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="50" y="0" fill="#ff8884"/>
+            <use xlink:href="#gentle-wave" x="50" y="3" fill="#ffb3b0"/>
+            <use xlink:href="#gentle-wave" x="50" y="6" fill="#ffd5d4"/>
+            <use xlink:href="#gentle-wave" x="50" y="7" fill="#fff"/>
+        </g>
+    </svg>
+</div>
+<div class="You_dengl">
+    <form id="signon">
+        <p class="color_button">
+            <img src="images/sign1.png" alt="">
+            <input id="username" name="username" type="text" placeholder="请输入用户名">
+        </p>
+        <p class="color_button">
+            <img src="images/sign2.png" alt="">
+            <input id="password" name="password" type="password" placeholder="请输入密码">
+        </p>
+
+        <p class="text_df"><a href="#">忘记密码</a></p>
+    </form>
+    <div class="denglu_fe">
+        <button onclick="submitForm()">登录</button>
+        <button onclick="Fidf()">注册</button>
+    </div>
+
+    <div class="text">
+        <div class="bt"><span>第三方登录</span></div>
+        <ul>
+            <li><img src="images/sanda_anniu.png" alt=""></li>
+            <li><img src="images/sanda_anniu1.png" alt=""></li>
+            <li><img src="images/sanda_anniu2.png" alt=""></li>
+        </ul>
+    </div>
+</div>
+<br>
+<br>
+<!-- 底部导航 -->
+</body>
+</html>
+<script>
+    function Fidf() {
+        window.open('sign_on_zhuc.html', '_self');
+    }
+
+    function submitForm() {
+        var errorlog = "";
+        $.ajax({
+            url: "http://localhost:8080/account/signon",
+            cache: true,
+            type: "post",
+            xhrFields: {withCredentials: true},
+            data: $('#signon').serialize(),// 你的formid
+            async: false,
+            contentType: "application/x-www-form-urlencoded",
+            dataType: "json",
+            success: function (data) {
+                if (data.result == false) {
+                    errorlog = data.errorlog;
+                    alert(errorlog);
+                } else {
+                    window.location.href = "my.html";
+                }
+            },
+            error: function (data) {
+                alert("error");
+            }
+
+        });
+    }
+
+
+</script>
