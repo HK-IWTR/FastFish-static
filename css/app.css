@@ -531,7 +531,6 @@ color: #ff2e26;
 	height: 1.5rem;
 	float: left;
 	margin-right:.2rem;
-
 }
 .list_shouye li h3 img{
 	width: 100%;
@@ -546,7 +545,7 @@ color: #ff2e26;
 	height: .65rem;
 }
 .list_shouye li dl dd{
-	margin-top: .35rem;
+	margin-top: .15rem;
 	color: #ff2e26;
 	position: relative;
 }
@@ -668,9 +667,17 @@ color: #ff2e26;
     padding: .12rem 0;
 }
 .neir_lise li .left {
-    width: 68%;
+    width: 33%;
+	text-align:left;
     display: inline-block;
-} 
+}
+
+.neir_lise li .center {
+	width: 33%;
+	text-align:center;
+	display: inline-block;
+}
+
 .neir_lise li h1 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2613,8 +2620,11 @@ padding: 2%;
 	padding:.2rem;
 }
 .list_xianq .bt h2{
+	width: 50%;
+	float: left;
 	font-size: .28rem;
 	padding-bottom: .1rem;
+	padding-top: .2rem;
 	font-weight: 600;
 }
 .list_xianq .bt p{

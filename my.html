@@ -117,6 +117,7 @@ function sign(){
             url : "http://localhost:8080/account/issignon",
             type: "get",
             async: false,
+            xhrFields: {withCredentials: true},
             success:function(data){
                 console.log(data)
                 if(data.result == "true"){
@@ -160,7 +161,7 @@ function sign(){
 
     function to_my_orders() {
         if (issignon){
-            window.location.href = "my_ordering.html"
+            window.location.href = "my_orders.html"
         }
         else{
             alert("请先登录")

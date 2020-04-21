@@ -34,7 +34,7 @@
 </div>   
 <div class="rem2"></div>
 <div class="dizhi_sdf" onclick="Cnile()">
-    <h2>江西省吉安市吉水县文峰中大道万尚一楼</h2>
+    <h2 id="address"></h2>
 </div>
 <script>
 function Cnile(){
@@ -44,17 +44,19 @@ function Cnile(){
 
 <div class="rem2"></div>
 <div class="zy_module_content">	
-    <div class="swiper-container vip_user_order clas_Sg">
+    <div class="swiper-container vip_user_order">
         <!-- top nav -->  
         <div class="list_shouye">
             <ul>
                 <li>
                     <div style="overflow:hidden;"> 
-                        <h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
+                        <h3><a href="#"><img id="picture" style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
                         <dl>
-                            <h2>奥古斯都游泳馆</h2>
-                            <a>场次：2020-3-1 10:00-12：00</a>
-                            <dd>￥20</dd>
+                            <h2 style="padding-top: 3px" id="nata_name"></h2>
+                            <a id="event_date"></a>
+                            <br>
+                            <a id="event_time"></a>
+                            <dd id="price"></dd>
                         </dl>
                     </div> 
                 </li> 
@@ -64,25 +66,75 @@ function Cnile(){
 </div>
 <div class="rem2"></div> 
 <div class="dsf_sdf">
-    <p>实付：<span>￥20</span></p>
+    <p>实付：<span id="price2"></span></p>
     <a href="#">联系卖家</a>
 </div>
-<div class="rem2"></div> 
 
-<div class="rem2"></div> 
+<div class="lar_ruh"><a href="javascript:void (0)" onclick="submitOrder()">确认支付</a></div>
 
 <script>
-    function ChkD(){
-        window.open('my_pingou_list.html','_self')
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]);
+        return null;
     }
+
+    var nata_id = GetQueryString("nata_id")
+    var event_date = GetQueryString("event_date");
+    var event_time = GetQueryString("event_time");
+    var price;
+    var username = GetQueryString("username");
+    var picture ;
+    var nata_name;
+
+    $("#event_date").html("日期：" + event_date);
+    $("#event_time").html("场次：" + event_time);
+
+    $(function () {
+        $.ajax({
+            url: "http://localhost:8080/natatorium/id?id=" + nata_id,
+            type: "get",
+            async: false,
+            xhrFields: {withCredentials: true},
+            success:function(data){
+                $("#nata_name").html(data.nata_name);
+                nata_name = data.nata_name;
+                price = data.price;
+                $("#price").html("￥"+price);
+                $("#price2").html("￥"+price);
+                $("#address").html(data.address);
+                document.getElementById("picture").src=data.picture;
+                picture = data.picture;
+            },
+            error:function(){
+                alert("error")
+            }
+
+        });
+    })
+
+    function submitOrder() {
+        $.ajax({
+            cache: true,
+            type: "post",
+            url: "http://localhost:8080/order/new",
+            data: {"nata_name":nata_name, "username":username, "event_date":event_date, "event_time":event_time, "price":price, "picture": picture},
+            xhrFields: {withCredentials: true},
+            async: false,
+            success: function(data) {
+                alert(data.result);
+            },
+            error: function(data) {
+                alert("error");
+            }
+        });
+
+    }
+
+
 </script>
-<div class="rem2"></div>
-<div class="rem2"></div>
 
-<br>
-<br> 
-
-<div class="lar_ruh"><a href="#">确认支付</a></div>
 
 </body>
 </html>   

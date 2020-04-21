@@ -8,7 +8,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
 	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
 	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-	<title>我的收藏</title>
+	<title>我的订单</title>
 
 	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
  
@@ -30,7 +30,7 @@ body{background:#fff;}
 <!-- 头部 -->
 <div class="ziye_toub">
     <div class="left" onclick="history.back();"></div>
-    <p>我的收藏</p>
+    <p>我的订单</p>
 </div>   
 <div class="zy_module_content">	
     <div class="swiper-container vip_user_order">
@@ -38,17 +38,14 @@ body{background:#fff;}
         <div class="order_nav dis_flex"></div>
         <div class="rem2"></div>
         <div class="swiper-wrapper">
-            <div class="swiper-slide"> 
-                <div  class="list_shouye">
-                    <ul id="collection_natas">
+            <div class="swiper-slide">
+                <div id="orders1" class="list_shouye">
 
-                    </ul>
                 </div>
             </div> 
-            <div class="swiper-slide">
+            <div id="orders2" class="swiper-slide">
 
             </div>
-
         </div>
     </div> 
     <style>
@@ -57,39 +54,57 @@ body{background:#fff;}
     }
     </style>
     <script>
-
-        $(function () {
+        $(function getOrders (){
             $.ajax({
-                url: "http://localhost:8080/collect/collections" ,
+                url: "http://localhost:8080/order/orders",
                 type: "get",
                 async: false,
                 xhrFields: {withCredentials: true},
                 success: function (data) {
+                    var dataHtml;
                     for (var i = 0; i < data.length; i++){
-                        dataHtml = "<li><h3><a href=\"list_xq.html?id="+ data[i].id +"\"><img style=\"height: 1.5rem;\" src=\""+ data[i].picture +
-                            "\" alt=\"\"></a></h3><dl><dt><b>" + data[i].nata_name +
-                            "</b></dt><a>"+ data[i].description +
-                            "</a><dd>￥"+ data[i].price +"/人" +
-                            "<div class=\"touxs\">"+ data[i].grade +"分</div></dd></dl></li>";
-                        $("#collection_natas").append(dataHtml);
+                        dataHtml = "<ul><li><div style=\"overflow:hidden;\"><h3><a href=\"#\"><img style=\"height: 1.5rem;\" " +
+                            "src=\""+ data[i].picture +"\" alt=\"\"></a></h3><dl>" +
+                            "<a>"+ data[i].nata_name +"</a><br><a>日期："+ data[i].event_date +"</a><br>" +
+                            "<a>场次："+ data[i].event_time +"</a><dd>￥"+ data[i].price +"</dd></dd>" +
+                            "</dl></div><div class=\"order_btn\">" +
+                            "<a href=\"javascript:void(0)\" onclick=\" cancelOrder(" + data[i].id +
+                            "," + data[i].price + ") \">取消预约</a></div></li></ul>";
+                        $("#orders1").append(dataHtml);
                     }
                 }
             })
             var swiper = new Swiper('.vip_user_order', {
                 autoHeight: true, //enable auto height
+                // pagination: '.order_nav',
                 pagination: {
                     el: '.order_nav',
                     clickable :true,
                     renderBullet: function (index, className) {
                         switch(index){
                             case 0:text='游泳馆';break;
-                            case 1:text='兑换商城';break;
+                            case 1:text='积分商城';break;
                         }
                         return '<a class="' + className + '">' + text + '</a>';
                     },
                 },
             });
-        })
+        });
+
+        function cancelOrder(orderId,price) {
+            $.ajax({
+                url: "http://localhost:8080/order/cancel?orderId="+ orderId + "&price=" + price ,
+                type: "get",
+                async: false,
+                xhrFields: {withCredentials: true},
+                success: function (data) {
+                    alert(data.result);
+                }
+            })
+            location.reload();
+        }
+
+
 
 
     </script>

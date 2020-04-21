@@ -51,53 +51,9 @@
 		<div class="swiper-slide"><img src="images/index-head.jpeg"></div>
 	</div>
 	<div class="swiper-pagination lunbo_banner"></div>
-</div>  
-
-
-<script>
-var swiper = new Swiper('.kuaijdh_container', {
-	slidesPerView:5,
-	slidesPerColumn: 1,
-	spaceBetween: 0,
-	pagination: {
-    el: '.swiper-pagination',
-    // type: 'bullets',
-    // type: 'fraction',
-    type : 'progressbar',
-    // type : 'custom',
-  },
-	
-});
-</script>
+</div>
 
 	<br>
-
-<script>
-//  平台公告
-
-$(document).ready(function(){
-	//滚动文字
-	function runtxt(){
-		$(".scrollnews ul").animate({marginTop:"-.4rem"},300,
-			function(){
-				$(".scrollnews ul li:last").after($(".scrollnews ul li:first"))
-				$(".scrollnews ul").css("margin-top",0)
-			}
-		)
-	}   
-	$(".scrollnews ul li a").mouseenter(
-		function(){
-			clearInterval(timer)
-		}
-	)
-	$(".scrollnews ul li a").mouseleave(
-		function(){
-			timer=setInterval(runtxt,4000)
-		}
-	)
-	timer=setInterval(runtxt,4000)
-}) 
-</script>
 
 <!-- 品质商家 -->
 <div class="pzsj">
@@ -106,146 +62,38 @@ $(document).ready(function(){
 		<div class="a"><a href="fujin.html">查看更多 ></a></div>
 	</div>
 	<div class="swiper_container_pinz">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<div class="dfe_zzrep">
-					<a href="release_list_xq.html">
-						<img src="images/zzrep.jpg">
-					</a>
-					<p>奥古斯都游泳馆</p> 
+		<div class="swiper-wrapper" id="nata1">
+<!--			<div class="swiper-slide">-->
+<!--				<div class="dfe_zzrep">-->
+<!--					<a href="release_list_xq.html">-->
+<!--						<img src="images/nata_pic1.jpg">-->
+<!--					</a>-->
+<!--					<p>奥古斯都游泳馆</p>-->
+<!--				</div>-->
+<!--			</div>-->
 
-				</div> 
-			</div>
-			<div class="swiper-slide">
-				<div class="dfe_zzrep">
-					<a href="release_list_xq.html">
-						<img src="images/zzrep1.jpg">
-					</a>
-					<p>奥古斯都游泳馆</p> 
-
-				</div> 
-			</div>
-			<div class="swiper-slide">
-				<div class="dfe_zzrep">
-					<a href="release_list_xq.html">
-						<img src="images/zzrep2.jpg">
-					</a>
-					<p>奥古斯都游泳馆</p> 
-
-				</div> 
-			</div>
-			<div class="swiper-slide">
-				<div class="dfe_zzrep">
-					<a href="release_list_xq.html">
-						<img src="images/zzrep1.jpg">
-					</a>
-					<p>奥古斯都游泳馆</p> 
-					
-				</div> 
-			</div>
-			<div class="swiper-slide">
-				<div class="dfe_zzrep">
-					<a href="release_list_xq.html">
-						<img src="images/zzrep2.jpg">
-					</a>
-					<p>奥古斯都游泳馆</p> 
-					
-				</div> 
-			</div>
-			<div class="swiper-slide">
-				<div class="dfe_zzrep">
-					<a href="release_list_xq.html">
-						<img src="images/zzrep.jpg">
-					</a>
-					<p>奥古斯都游泳馆</p>
-				</div> 
-			</div>
 		</div> 
 	</div>
 </div>
 
-<script>
-// 正在热拼
-var swiper = new Swiper('.swiper_container_pinz', {
-	slidesPerView:3, 
-	spaceBetween:6, 
-	autoplay: {
-		delay: 3000,
-		stopOnLastSlide: false,
-		disableOnInteraction: false,
-	}, 
-    loop : true,
-
-});
-	
-</script>
-
-<!-- 列表 -->
+<!-- 场馆推荐 -->
 <div class="biaoti_Sy">
 	<h2>场馆推荐</h2>
 </div>
 <div class="list_shouye">
-	<ul>
-		<li>
-			<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
-			<dl>
-				<dt><b>奥古斯都游泳馆</b></dt>
-				<a>优质服务</a>
-				<dd>￥30/人
-					<div class="touxs">
-						4.8分
-					</div> 
-				</dd>
-			</dl>
-		</li>
-		<li>
-			<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
-			<dl>
-				<dt><b>奥古斯都游泳馆</b></dt>
-				<a>优质服务</a>
-				<dd>￥30/人
-					<div class="touxs">
-						4.8分
-					</div>
-				</dd>
-			</dl>
-		</li>
-		<li>
-		<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
-		<dl>
-			<dt><b>奥古斯都游泳馆</b></dt>
-			<a>优质服务</a>
-			<dd>￥30/人
-				<div class="touxs">
-					4.8分
-				</div>
-			</dd>
-		</dl>
-	</li>
-		<li>
-		<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
-		<dl>
-			<dt><b>奥古斯都游泳馆</b></dt>
-			<a>优质服务</a>
-			<dd>￥30/人
-				<div class="touxs">
-					4.8分
-				</div>
-			</dd>
-		</dl>
-	</li>
-		<li>
-		<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>
-		<dl>
-			<dt><b>奥古斯都游泳馆</b></dt>
-			<a>优质服务</a>
-			<dd>￥30/人
-				<div class="touxs">
-					4.8分
-				</div>
-			</dd>
-		</dl>
-	</li>
+	<ul id="nata2">
+<!--		<li>-->
+<!--			<h3><a href="#"><img style="height: 1.5rem;" src="images/list_sy.jpg" alt=""></a></h3>-->
+<!--			<dl>-->
+<!--				<dt><b>奥古斯都游泳馆</b></dt>-->
+<!--				<a>优质服务</a>-->
+<!--				<dd>￥30/人-->
+<!--					<div class="touxs">-->
+<!--						4.8分-->
+<!--					</div> -->
+<!--				</dd>-->
+<!--			</dl>-->
+<!--		</li>-->
 	</ul>
 </div>
 
@@ -310,6 +158,46 @@ var swiper = new Swiper('.swiper_container_pinz', {
 			disableOnInteraction: true,
 		},
 	});
+
+	$(function a () {
+
+		$.ajax({
+			url: "http://localhost:8080/natatorium/allNatatoriums",
+			type: "get",
+			async: false,
+			xhrFields: {withCredentials: true},
+			success: function (data) {
+				var dataHtml = "";
+				for (var i = 0; i < data.natatoriums.length; i++) {
+					dataHtml = "<div class=\"swiper-slide\"><div class=\"dfe_zzrep\">" +
+							"<a href=\"list_xq.html?id="+ data.natatoriums[i].id +"\">" +
+							"<img src=\"" + data.natatoriums[i].picture + "\"></a><p>" + data.natatoriums[i].nata_name + "</p></div></div>";
+					$("#nata1").append(dataHtml);
+				}
+
+				var dataHtml2 = "";
+				for (var i = 0; i < data.natatoriums.length; i++){
+					dataHtml2 = "<li><h3><a href=\"list_xq.html?id="+ data.natatoriums[i].id +"\"><img style=\"height: 1.5rem;\" src=\""+ data.natatoriums[i].picture +
+							"\" alt=\"\"></a></h3><dl><dt><b>" + data.natatoriums[i].nata_name +
+							"</b></dt><a>"+ data.natatoriums[i].description +
+							"</a><dd>￥"+ data.natatoriums[i].price +"/人" +
+							"<div class=\"touxs\">"+ data.natatoriums[i].grade +"分</div></dd></dl></li>";
+					$("#nata2").append(dataHtml2);
+				}
+			}
+		})
+
+		var swiper = new Swiper('.swiper_container_pinz', {
+			slidesPerView: 3,
+			spaceBetween: 6,
+			autoplay: {
+				delay: 3000,
+				stopOnLastSlide: false,
+				disableOnInteraction: false,
+			},
+			loop: true,
+		});
+	})
 
 </script>
  

@@ -1,29 +1,29 @@
 <!doctype html>
 <html class="no-js">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=0">
-	<meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
-	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-	<title>店面详情</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=drvice-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"> -->
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>店面详情</title>
 
-	<link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png"> 
- 
-	<link rel="stylesheet" href="css/swiper.min.css">
-	<link rel="stylesheet" href="css/app.css">
+    <link rel="icon" type="image/png" href="../qgj_qt/images/favicon.png">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="css/global.css"/>
-    <link rel="stylesheet" type="text/css" href="css/jquery.ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/css.css"/>
-	<!-- jquery -->
-	<script src="js/jquery-1.4.4.min.js"></script>  
-	<script src="js/swiper.min.js"></script>
-    <link type="text/css" href="./css/mobiscroll.css" rel="stylesheet" />
-</head> 
-<body> 
-<!-- 搜索 -->  
+    <!-- jquery -->
+    <script src="js/jquery-1.4.4.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <link type="text/css" href="./css/mobiscroll.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- 搜索 -->
 <div style="height: .75rem;"></div>
 <!-- 头部 -->
 <div class="ziye_toub">
@@ -32,112 +32,254 @@
 </div>
 <!-- banner -->
 <div class="swiper-container banner_shouy list_xq">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide"><img src="images/rupian2.jpg"></div>
-		<div class="swiper-slide"><img src="images/rupian.jpg"></div>
-	</div>
-	<div class="swiper-pagination lunbo_banner"></div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/rupian2.jpg"></div>
+        <div class="swiper-slide"><img src="images/rupian.jpg"></div>
+    </div>
+    <div class="swiper-pagination lunbo_banner"></div>
 </div>
 <div class="list_xianq">
     <div class="bt">
-        <h2>奥古斯都游泳馆</h2>
-<!--        <p>12000/月 <span>一年起租</span></p>-->
+        <h2 id="name">奥古斯都游泳馆</h2>
+        <div class="order_btn right">
+            <a href="javascript:void (0)" onclick="collect()" id="collect">收藏</a>
+            <a href="javascript:void (0)" onclick="uncollect()" id="collected">取消收藏</a>
+        </div>
     </div>
+
+
 </div>
 <div class="nimen_sd_dd">
-    <p><span>室内场馆</span><span>有</span></p>
-    <p><span>恒温泳池</span><span>有</span></p>
-    <p><span>联系方式</span><span>123456789</span></p>
-    <p><span>地址</span><span>吉安南路38号</span></p>
+    <p><span>联系方式</span><span id="telephone">123456789</span></p>
+    <p><span>地址</span><span id="address">吉安南路38号</span></p>
 </div>
 <div class="biaot_ser">
     <h1 class="biaot">场馆公告</h1>
     <div class="news_sj_dxs_box">
         <div class="scrollnews">
             <ul style="margin-top: 0px;">
-                <li><i>公告</i><a href="notice.html">奥古斯都游泳馆将在3月1日开业</a></li><li><i>热门</i><a href="report_xq.html">董事长在员工大会上发表演讲！</a></li><li><i>头条</i><a href="report_xq.html">热烈祝贺颜文明体育贵阳市枣山路店盛大开业</a></li>
+                <li><i>公告</i><a href="notice.html">奥古斯都游泳馆将在3月1日开业</a></li>
+                <li><i>热门</i><a href="report_xq.html">董事长在员工大会上发表演讲！</a></li>
+                <li><i>头条</i><a href="report_xq.html">热烈祝贺颜文明体育贵阳市枣山路店盛大开业</a></li>
             </ul>
             <a class="gengd" href="report.html">更多</a>
         </div>
     </div>
 </div>
-
 <div class="biaot_ser">
     <h1 class="biaot">场次预约</h1>
+        <div class="sea-div">
+            <label class="lab">日期选择</label>
+            <input type="text" readonly id="startDate"/>
+        </div>
 
-    <div class="sea-div">
-        <label class="lab">日期选择</label><input type="text" readonly  id="startDate"/>
-    </div>
+        <div class="neir_lise">
+            <ul id="event_time">
+                <li>
+                    <a class="left">时间段</a>
+<!--                    <a class="center"> 剩余空位 </a>-->
+                    <a class="right">操作</a>
+                </li>
 
-    <div class="neir_lise">
-        <ul>
-            <li>
-                <a>8:00-10:00</a>
-                <a href="make_order.html" class="right">预约</a>
-            </li>
-            <li>
-                <a>10:00-12:00</a>
-                <a href="#" class="right">预约</a>
-            </li>
-            <li>
-                <a >12:00-14:00</a>
-                <a href="#" class="right">预约</a>
-            </li>
-            <li>
-                <a>14:00-16:00</a>
-                <a href="#" class="right">预约</a>
-            </li>
-            <li>
-                <a>16:00-18:00</a>
-                <a href="#" class="right">预约</a>
-            </li>
-            <li>
-                <a>18:00-20:00</a>
-                <a href="#" class="right">预约</a>
-            </li>
-        </ul>
-    </div>
+                <li>
+                    <a id="event1">8:00-10:00</a>
+                    <a href="javascript:void (0)" onclick="getEventTime1()" class="right">预约</a>
+                </li>
+                <li>
+                    <a id="event2">10:00-12:00</a>
+                    <a href="javascript:void (0)" onclick="getEventTime2()" class="right">预约</a>
+                </li>
+                <li>
+                    <a id="event3">12:00-14:00</a>
+                    <a href="javascript:void (0)" onclick="getEventTime3()" class="right">预约</a>
+                </li>
+                <li>
+                    <a id="event4">14:00-16:00</a>
+                    <a href="javascript:void (0)" onclick="getEventTime4()" class="right">预约</a>
+                </li>
+                <li>
+                    <a id="event5">16:00-18:00</a>
+                    <a href="javascript:void (0)" onclick="getEventTime5()" class="right">预约</a>
+                </li>
+                <li>
+                    <a id="event6">18:00-20:00</a>
+                    <a href="javascript:void (0)" onclick="getEventTime6()" class="right">预约</a>
+                </li>
+            </ul>
+        </div>
 </div>
 <br>
 <br>
 <br>
 
 <script>
-// banner
-var swiper = new Swiper('.banner_shouy', {
-	pagination: {
-		el: '.swiper-pagination',
-        type: 'fraction', 
-	},
-	autoplay: {
-		delay: 3000,
-		stopOnLastSlide: false,
-		disableOnInteraction: true, 
-	},  
-});
-
-$(function(){
-    $('#timeSel').mobiscroll().datetime({
-        theme: 'ios', //皮肤样式
-        display: 'bottom', //对齐
-        mode: 'scroller', //日期选择模式：弹出
-        lang: 'zh',         //语言
-        dateFormat: 'yy-MM-dd HH:mm', // 日期格式
-        setText: '确定', //确认按钮名称
-        cancelText: '取消',//取消按钮名籍我
-        showLabel : false,   //显示头信息
-        headerText: '时间',
-        height: 40,
-        max: new Date('2050-12-30 23:59:59'),
-        min: new Date('2014-01-01 00:00:00')
+    // banner
+    var swiper = new Swiper('.banner_shouy', {
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+        },
+        autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+        },
     });
-});
+
+    var issignon = false;
+    var event_time = "";
+    var event_date;
+    var nata_id;
+    var username;
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]);
+        return null;
+    }
+
+    function getEventTime1(){
+        var i = document.getElementById("event1");
+        var eventTime = i.innerText;
+        event_time = eventTime;
+        makeOrder();
+    }
+    function getEventTime2(){
+        var i = document.getElementById("event2");
+        var eventTime = i.innerText;
+        event_time = eventTime;
+        makeOrder();
+
+    }
+    function getEventTime3(){
+        var i = document.getElementById("event3");
+        var eventTime = i.innerText;
+        event_time = eventTime;
+        makeOrder();
+
+    }
+    function getEventTime4(){
+        var i = document.getElementById("event4");
+        var eventTime = i.innerText;
+        event_time = eventTime;
+        makeOrder();
+
+    }
+    function getEventTime5(){
+        var i = document.getElementById("event5");
+        var eventTime = i.innerText;
+        event_time = eventTime;
+        makeOrder();
+    }
+    function getEventTime6(){
+        var i = document.getElementById("event6");
+        var eventTime = i.innerText;
+        event_time = eventTime;
+        makeOrder();
+    }
+
+    function getEventDate(){
+        event_date = document.getElementById("startDate").value;
+    }
+
+    $(function isSignOn (){
+        $.ajax({
+            url : "http://localhost:8080/account/issignon",
+            type: "get",
+            async: false,
+            xhrFields: {withCredentials: true},
+            success:function(data){
+                console.log(data)
+                issignon = data.result;
+                username = data.username;
+            },
+            error:function(){
+                alert("error")
+            }
+        });
+
+    })
+
+    function makeOrder(){
+        if (issignon == "true"){
+            getEventDate();
+            window.location.href = "make_order.html?nata_id="+nata_id+"&username="+username+"&event_date="+event_date+"&event_time="+event_time;
+        }
+        else{
+            alert("请先登录")
+            window.location.href = "sign_on.html";
+        }
+    }
+
+    $(function () {
+        var id = GetQueryString("id");
+        nata_id = id;
+        console.log(id);
+        $.ajax({
+            url: "http://localhost:8080/natatorium/id?id=" + id,
+            type: "get",
+            async: false,
+            xhrFields: {withCredentials: true},
+            success: function (data) {
+                console.log(data);
+                $("#name").html(data.nata_name);
+                $("#telephone").html(data.telnumber);
+                $("#address").html(data.address);
+            }
+        })
+    })
+
+    $(function isCollected () {
+        $.ajax({
+            url: "http://localhost:8080/collect/isCollected?nata_id=" + nata_id + "&username=" + username,
+            type: "get",
+            async: false,
+            xhrFields: {withCredentials: true},
+            success: function (data) {
+                if (data.result == "true")
+                    $("#collect").hide();
+                else
+                    $("#collected").hide();
+            }
+        })
+    })
+
+    function collect() {
+        $.ajax({
+            url: "http://localhost:8080/collect/new?nata_id=" + nata_id + "&username=" + username,
+            type: "get",
+            async: false,
+            xhrFields: {withCredentials: true},
+            success: function (data) {
+
+            }
+        })
+        location.reload();
+    }
+
+    function uncollect() {
+        $.ajax({
+            url: "http://localhost:8080/collect/cancel?nata_id=" + nata_id + "&username=" + username,
+            type: "get",
+            async: false,
+            xhrFields: {withCredentials: true},
+            success: function (data) {
+            }
+        })
+        location.reload();
+    }
+
+
+
+
+
 </script>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.ui.js"></script>
 <script type="text/javascript" src="js/moment.min.js"></script>
-<script type="text/javascript" src="js/hotel/hotel.search.js"></script>
 <script type="text/javascript" src="js/stay.js"></script>
 
 </body>
